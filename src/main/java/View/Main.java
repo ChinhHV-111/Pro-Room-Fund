@@ -29,7 +29,7 @@ public class Main extends Application {
         primaryStage.getIcons().add(icon);
 
         // Set title stage, scene
-        primaryStage.setTitle("ProHomeFund");
+        primaryStage.setTitle("ProRoomFund");
         primaryStage.setScene(scene);
 
         // Show

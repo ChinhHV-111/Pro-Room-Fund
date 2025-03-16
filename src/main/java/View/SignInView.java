@@ -27,6 +27,9 @@ public class SignInView {
         root = FXMLLoader.load(getClass().getResource("/FXML/SignUpView/SignUpView.fxml"));
         stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
         scene = new Scene(root);
+        // Nhúng css
+        String css = getClass().getResource("/FXML/SignUpView/SignUpView.css").toExternalForm();
+        scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
     }
@@ -35,6 +38,14 @@ public class SignInView {
     public void onSignInClick(ActionEvent event) throws Exception {
         // Kiểm tra hợp lệ: code
         // Nếu valid: code
+        root = FXMLLoader.load(getClass().getResource("/FXML/GroupView/GroupView.fxml"));
+
+        stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
+        scene = new Scene(root);
+        String css = getClass().getResource("/FXML/GroupView/GroupView.css").toExternalForm();
+        scene.getStylesheets().add(css);
+        stage.setScene(scene);
+        stage.show();
         // Nếu invalid:
         invalidSignInLabel.setStyle("-fx-text-fill: #fb0000;");
     }

@@ -72,7 +72,7 @@
             <Font name="Geomanist-Medium" size="18.0" />
          </font>
       </Label>
-      <Button layoutX="796.0" layoutY="534.0" mnemonicParsing="false" style="-fx-background-color: #ffffff;" text="Sign in">
+      <Button layoutX="796.0" layoutY="534.0" mnemonicParsing="false" onAction="#onSignInClick" style="-fx-background-color: #ffffff;" text="Sign in">
          <font>
             <Font name="Geomanist-Medium" size="18.0" />
          </font>

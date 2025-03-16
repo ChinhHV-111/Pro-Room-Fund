@@ -16,7 +16,7 @@
             <Image url="@../../Images/SignInIm.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="512.0" layoutY="57.0" text="ProHomeFund" textFill="#225c9a">
+      <Label layoutX="513.0" layoutY="57.0" text="ProRoomFund" textFill="#225c9a">
          <font>
             <Font name="Geomanist-Bold" size="55.0" />
          </font>
