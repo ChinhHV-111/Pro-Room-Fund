@@ -37,16 +37,22 @@ public class SignInView {
     @FXML
     public void onSignInClick(ActionEvent event) throws Exception {
         // Kiểm tra hợp lệ: code
-        // Nếu valid: code
-        root = FXMLLoader.load(getClass().getResource("/FXML/GroupView/GroupView.fxml"));
+        String username = usernameTextField.getText();
+        String password = passwordTextField.getText();
+        if(Controller.SignIn.signIn(username, password)) {
+            // Hợp lệ
+            root = FXMLLoader.load(getClass().getResource("/FXML/GroupView/GroupView.fxml"));
 
-        stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
-        scene = new Scene(root);
-        String css = getClass().getResource("/FXML/GroupView/GroupView.css").toExternalForm();
-        scene.getStylesheets().add(css);
-        stage.setScene(scene);
-        stage.show();
-        // Nếu invalid:
-        invalidSignInLabel.setStyle("-fx-text-fill: #fb0000;");
+            stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
+            scene = new Scene(root);
+            String css = getClass().getResource("/FXML/GroupView/GroupView.css").toExternalForm();
+            scene.getStylesheets().add(css);
+            stage.setScene(scene);
+            stage.show();
+        }
+        else {
+            // Không hợp lệ
+            invalidSignInLabel.setStyle("-fx-text-fill: #fb0000;");
+        }
     }
 }

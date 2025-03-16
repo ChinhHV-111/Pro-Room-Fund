@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -175,127 +177,15 @@
                   <Insets left="50.0" top="30.0" />
                </padding>
                <content>
-                  <VBox prefHeight="648.0" prefWidth="574.0" spacing="8.0">
-                     <children>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="574.0" style="-fx-background-color: #B39DDB; -fx-background-radius: 15;">
-                           <children>
-                              <ImageView fitHeight="80.0" fitWidth="120.0" layoutX="423.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../Images/z6395137734544_c2f121f404c3c3e110dc69b666d93594.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label layoutX="27.0" layoutY="14.0" prefHeight="28.0" prefWidth="365.0" text="Phòng 209" wrapText="true">
-                                 <font>
-                                    <Font name="Geomanist-Book" size="22.0" />
-                                 </font>
-                              </Label>
-                              <Label alignment="TOP_LEFT" layoutX="27.0" layoutY="45.0" prefHeight="41.0" prefWidth="365.0" text="Mô tả: .......................................................................................... ....................." textFill="#3f3e3e" wrapText="true">
-                                 <font>
-                                    <Font name="Geomanist-Book" size="15.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="574.0" style="-fx-background-color: #B39DDB; -fx-background-radius: 15;">
-                           <children>
-                              <ImageView fitHeight="80.0" fitWidth="120.0" layoutX="423.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../Images/z6395137734544_c2f121f404c3c3e110dc69b666d93594.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label layoutX="27.0" layoutY="14.0" prefHeight="28.0" prefWidth="365.0" text="Phòng 209" wrapText="true">
-                                 <font>
-                                    <Font name="Geomanist-Book" size="22.0" />
-                                 </font>
-                              </Label>
-                              <Label alignment="TOP_LEFT" layoutX="27.0" layoutY="45.0" prefHeight="41.0" prefWidth="365.0" text="Mô tả: .......................................................................................... ....................." textFill="#3f3e3e" wrapText="true">
-                                 <font>
-                                    <Font name="Geomanist-Book" size="15.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="574.0" style="-fx-background-color: #B39DDB; -fx-background-radius: 15;">
-                           <children>
-                              <ImageView fitHeight="80.0" fitWidth="120.0" layoutX="423.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../Images/z6395137734544_c2f121f404c3c3e110dc69b666d93594.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label layoutX="27.0" layoutY="14.0" prefHeight="28.0" prefWidth="365.0" text="Phòng 209" wrapText="true">
-                                 <font>
-                                    <Font name="Geomanist-Book" size="22.0" />
-                                 </font>
-                              </Label>
-                              <Label alignment="TOP_LEFT" layoutX="27.0" layoutY="45.0" prefHeight="41.0" prefWidth="365.0" text="Mô tả: .......................................................................................... ....................." textFill="#3f3e3e" wrapText="true">
-                                 <font>
-                                    <Font name="Geomanist-Book" size="15.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="574.0" style="-fx-background-color: #B39DDB; -fx-background-radius: 15;">
-                           <children>
-                              <ImageView fitHeight="80.0" fitWidth="120.0" layoutX="423.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../Images/z6395137734544_c2f121f404c3c3e110dc69b666d93594.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label layoutX="27.0" layoutY="14.0" prefHeight="28.0" prefWidth="365.0" text="Phòng 209" wrapText="true">
-                                 <font>
-                                    <Font name="Geomanist-Book" size="22.0" />
-                                 </font>
-                              </Label>
-                              <Label alignment="TOP_LEFT" layoutX="27.0" layoutY="45.0" prefHeight="41.0" prefWidth="365.0" text="Mô tả: .......................................................................................... ....................." textFill="#3f3e3e" wrapText="true">
-                                 <font>
-                                    <Font name="Geomanist-Book" size="15.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="574.0" style="-fx-background-color: #B39DDB; -fx-background-radius: 15;">
-                           <children>
-                              <ImageView fitHeight="80.0" fitWidth="120.0" layoutX="423.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../Images/z6395137734544_c2f121f404c3c3e110dc69b666d93594.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label layoutX="27.0" layoutY="14.0" prefHeight="28.0" prefWidth="365.0" text="Phòng 209" wrapText="true">
-                                 <font>
-                                    <Font name="Geomanist-Book" size="22.0" />
-                                 </font>
-                              </Label>
-                              <Label alignment="TOP_LEFT" layoutX="27.0" layoutY="45.0" prefHeight="41.0" prefWidth="365.0" text="Mô tả: .......................................................................................... ....................." textFill="#3f3e3e" wrapText="true">
-                                 <font>
-                                    <Font name="Geomanist-Book" size="15.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="574.0" style="-fx-background-color: #B39DDB; -fx-background-radius: 15;">
-                           <children>
-                              <ImageView fitHeight="80.0" fitWidth="120.0" layoutX="423.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../Images/z6395137734544_c2f121f404c3c3e110dc69b666d93594.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label layoutX="27.0" layoutY="14.0" prefHeight="28.0" prefWidth="365.0" text="Phòng 209" wrapText="true">
-                                 <font>
-                                    <Font name="Geomanist-Book" size="22.0" />
-                                 </font>
-                              </Label>
-                              <Label alignment="TOP_LEFT" layoutX="27.0" layoutY="45.0" prefHeight="41.0" prefWidth="365.0" text="Mô tả: .......................................................................................... ....................." textFill="#3f3e3e" wrapText="true">
-                                 <font>
-                                    <Font name="Geomanist-Book" size="15.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
-                     </children>
-                     <padding>
-                        <Insets right="2.0" />
-                     </padding>
-                  </VBox>
+                  <TableView prefHeight="595.0" prefWidth="574.0">
+                    <columns>
+                      <TableColumn prefWidth="159.33331680297852" text="Name" />
+                      <TableColumn prefWidth="91.33329772949219" text="Cost" />
+                        <TableColumn prefWidth="115.33331298828125" text="Payment date" />
+                        <TableColumn prefWidth="100.66677856445312" text="Payer" />
+                        <TableColumn prefWidth="108.0001220703125" text="Proof" />
+                    </columns>
+                  </TableView>
                </content>
             </ScrollPane>
          </children>
