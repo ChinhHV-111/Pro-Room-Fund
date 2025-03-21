@@ -16,7 +16,7 @@
             <Image url="@../../Images/SignInIm.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="609.0" layoutY="39.0" text="Create" textFill="#225c9a">
+      <Label layoutX="609.0" layoutY="35.0" text="Create" textFill="#225c9a">
          <font>
             <Font name="Geomanist-Bold" size="55.0" />
          </font>
@@ -24,7 +24,7 @@
             <Insets />
          </opaqueInsets>
       </Label>
-      <Label layoutX="526.0" layoutY="106.0" text="New Account" textFill="#225c9a">
+      <Label layoutX="526.0" layoutY="102.0" text="New Account" textFill="#225c9a">
          <font>
             <Font name="Geomanist-Bold" size="55.0" />
          </font>
@@ -32,37 +32,37 @@
             <Insets />
          </opaqueInsets>
       </Label>
-      <Label layoutX="587.0" layoutY="212.0" text="Username" textFill="#4580c2">
+      <Label layoutX="587.0" layoutY="200.0" text="Username" textFill="#4580c2">
          <font>
             <Font name="Geomanist-Medium" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="589.0" layoutY="282.0" text="Password" textFill="#4580c2">
+      <Label layoutX="589.0" layoutY="270.0" text="Password" textFill="#4580c2">
          <font>
             <Font name="Geomanist-Medium" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="587.0" layoutY="240.0" prefHeight="32.0" prefWidth="210.0" promptText="username" style="-fx-background-radius: 11;">
+      <TextField fx:id="usernameTextField" layoutX="587.0" layoutY="228.0" prefHeight="32.0" prefWidth="210.0" promptText="username" style="-fx-background-radius: 11;">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <TextField layoutX="587.0" layoutY="313.0" prefHeight="32.0" prefWidth="210.0" promptText="password" style="-fx-background-radius: 11;">
+      <TextField fx:id="passwordTextField" layoutX="587.0" layoutY="301.0" prefHeight="32.0" prefWidth="210.0" promptText="password" style="-fx-background-radius: 11;">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <Button layoutX="648.0" layoutY="450.0" mnemonicParsing="false" style="-fx-background-radius: 20; -fx-background-color: #225c9a; -fx-label-padding: 1;" text="Sign up" textFill="WHITE">
+      <Button layoutX="648.0" layoutY="424.0" mnemonicParsing="false" onAction="#onSignUpClick" style="-fx-background-radius: 20; -fx-background-color: #225c9a; -fx-label-padding: 1;" text="Sign up" textFill="WHITE">
          <font>
             <Font name="Geomanist-Medium" size="18.0" />
          </font>
       </Button>
-      <Label layoutX="589.0" layoutY="351.0" text="Confirm Password" textFill="#4580c2">
+      <Label layoutX="589.0" layoutY="339.0" text="Confirm Password" textFill="#4580c2">
          <font>
             <Font name="Geomanist-Medium" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="587.0" layoutY="382.0" prefHeight="32.0" prefWidth="210.0" promptText="confirm password" style="-fx-background-radius: 11;">
+      <TextField fx:id="confirmPasswordTextField" layoutX="587.0" layoutY="370.0" prefHeight="32.0" prefWidth="210.0" promptText="confirm password" style="-fx-background-radius: 11;">
          <font>
             <Font size="15.0" />
          </font>
@@ -77,5 +77,10 @@
             <Font name="Geomanist-Medium" size="18.0" />
          </font>
       </Button>
+      <Label fx:id="invalidSignUpLabel" layoutX="587.0" layoutY="470.0" prefHeight="56.0" prefWidth="235.0" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

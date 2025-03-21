@@ -1,12 +1,22 @@
 package Controller;
 
+import Model.Account;
+import Model.AccountDAO;
+
 import java.io.*;
 import java.util.Scanner;
 
 public class SignIn {
-    private static final String FILE_PATH = "src/main/java/Controller/account.txt";
+    private static Account account;
+
+    public static Account getAccount() {
+        return account;
+    }
+
+    private static final String filePath = "src/main/java/Model/FileData/account.txt";
+
     public static boolean signIn(String username, String password) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(" "); // Tách username và password
@@ -15,14 +25,15 @@ public class SignIn {
                     String storedPassword = parts[1].trim();
 
                     // So sánh
-                    if (storedUsername.trim().equals(username.trim()) && storedPassword.equals(password.trim())) {
+                    if (storedUsername.equals(username.trim()) && storedPassword.equals(password.trim())) {
+                        AccountDAO.loadAccount(storedUsername);
                         return true; // Đăng nhập thành công
                     }
                 }
             }
         }
         catch (IOException e) {
-            System.out.println("Lỗi khi đọc file: " + e.getMessage());
+            System.out.println(e.getMessage());
         }
         return false; // Đăng nhập thất bại
     }
