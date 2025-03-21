@@ -40,12 +40,12 @@
                               <Image url="@../../Images/HomeIcon.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="64.0" layoutY="14.0" text="Group" textFill="WHITE">
+                        <Label layoutX="64.0" layoutY="14.0" text="Room" textFill="WHITE">
                            <font>
                               <Font name="Geomanist-Regular" size="17.0" />
                            </font>
                         </Label>
-                        <Button fx:id="groupButton" layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" onAction="#onGroupClick" opacity="0.0" prefHeight="50.0" prefWidth="225.0" style="-fx-background-radius: 20;">
+                        <Button fx:id="roomButton" layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" onAction="#onRoomClick" opacity="0.0" prefHeight="50.0" prefWidth="225.0" style="-fx-background-radius: 20;">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>

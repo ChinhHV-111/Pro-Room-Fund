@@ -41,11 +41,11 @@ public class SignInView {
         String password = passwordTextField.getText();
         if(Controller.SignIn.signIn(username, password)) {
             // Hợp lệ
-            root = FXMLLoader.load(getClass().getResource("/FXML/GroupView/GroupView.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/FXML/RoomView/RoomView.fxml"));
 
             stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
             scene = new Scene(root);
-            String css = getClass().getResource("/FXML/GroupView/GroupView.css").toExternalForm();
+            String css = getClass().getResource("/FXML/RoomView/RoomView.css").toExternalForm();
             scene.getStylesheets().add(css);
             stage.setScene(scene);
             stage.show();

@@ -1,7 +1,7 @@
-#groupButton {
+#roomButton {
     -fx-background-color: linear-gradient(to right, rgba(255, 126, 95, 1) 0%, rgba(255, 126, 95, 0) 100%);
 }
-#groupButton:hover {
+#roomButton:hover {
     -fx-opacity: 0.3;
 }
 

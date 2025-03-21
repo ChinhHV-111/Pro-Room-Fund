@@ -6,20 +6,31 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-public class GroupView {
+public class RoomView {
     private Stage stage;
     private Scene scene;
     private Parent root;
 
     @FXML
-    public void onGroupClick(ActionEvent event) throws Exception {
-        root = FXMLLoader.load(getClass().getResource("/FXML/GroupView/GroupView.fxml"));
+    Label nameLabel;
+    @FXML
+    Label numberOfResidentsLabel;
+    @FXML
+    Label descriptionLabel;
+    @FXML
+    ImageView roomImageView;
+
+    @FXML
+    public void onRoomClick(ActionEvent event) throws Exception {
+        root = FXMLLoader.load(getClass().getResource("/FXML/RoomView/RoomView.fxml"));
 
         stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
         scene = new Scene(root);
-        String css = getClass().getResource("/FXML/GroupView/GroupView.css").toExternalForm();
+        String css = getClass().getResource("/FXML/RoomView/RoomView.css").toExternalForm();
         scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
@@ -61,6 +72,7 @@ public class GroupView {
         stage.show();
     }
 
+    @FXML
     public void onLogOutClick(ActionEvent event) throws Exception {
         root = FXMLLoader.load(getClass().getResource("/FXML/SignInView/SignInView.fxml"));
 
@@ -70,5 +82,11 @@ public class GroupView {
         scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
+    }
+
+    //-------------------------------------------------------------------//
+    @FXML
+    public void onEditRoomClick(ActionEvent event) throws Exception {
+
     }
 }

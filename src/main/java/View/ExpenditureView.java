@@ -14,12 +14,12 @@ public class ExpenditureView {
     private Parent root;
 
     @FXML
-    public void onGroupClick(ActionEvent event) throws Exception {
-        root = FXMLLoader.load(getClass().getResource("/FXML/GroupView/GroupView.fxml"));
+    public void onRoomClick(ActionEvent event) throws Exception {
+        root = FXMLLoader.load(getClass().getResource("/FXML/RoomView/RoomView.fxml"));
 
         stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
         scene = new Scene(root);
-        String css = getClass().getResource("/FXML/GroupView/GroupView.css").toExternalForm();
+        String css = getClass().getResource("/FXML/RoomView/RoomView.css").toExternalForm();
         scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
