@@ -1,5 +1,8 @@
 package View;
 
+import Controller.SignIn;
+import Model.Account;
+import Model.AccountDAO;
 import Utility.SceneManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,41 +15,71 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class RoomView {
+    private AccountDAO accountDAO = AccountDAO.getInstance(SignIn.getAccount().getUsername());
+
     private Stage stage;
     private Scene scene;
     private Parent root;
 
     @FXML
-    Label nameLabel;
+    private Label nameLabel;
     @FXML
-    Label numberOfResidentsLabel;
+    private Label numberOfResidentsLabel;
     @FXML
-    Label descriptionLabel;
+    private Label descriptionLabel;
     @FXML
-    ImageView roomImageView;
+    private ImageView roomImageView;
+
+    public void setNameLabel(String nameLabel) {
+        this.nameLabel.setText(nameLabel);
+    }
+    public void setNumberOfResidentsLabel(int numberOfMembers) {
+        String numberOfResidents = Integer.toString(numberOfMembers) + " người";
+        this.numberOfResidentsLabel.setText(numberOfResidents);
+    }
+    public void setDescriptionLabel(String descriptionLabel) {
+        this.descriptionLabel.setText(descriptionLabel);
+    }
 
     @FXML
     public void onRoomClick(ActionEvent event) throws Exception {
         stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
-        SceneManager.loadRoomView(stage);
+        scene = SceneManager.getRoomViewScene();
+
+        Account account = accountDAO.loadAccount();
+        RoomView roomView = SceneManager.getRoomView();
+        // Không đuợc
+        roomView.setNameLabel(account.getRoom().getName());
+        // Được
+        this.nameLabel.setText(account.getRoom().getName());
+        roomView.setNumberOfResidentsLabel(account.getRoom().getMembers().size());
+        roomView.setDescriptionLabel(account.getRoom().getDescription());
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     public void onMemberClick(ActionEvent event) throws Exception {
         stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
-        SceneManager.loadMemberView(stage);
+        scene = SceneManager.getMemberViewScene();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     public void onExpenditureClick(ActionEvent event) throws Exception {
         stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
-        SceneManager.loadExpenditureView(stage);
+        scene = SceneManager.getExpenditureViewScene();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     public void onHistoryClick(ActionEvent event) throws Exception {
         stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
-        SceneManager.loadHistoryView(stage);
+        scene = SceneManager.getHistoryViewScene();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
@@ -55,10 +88,11 @@ public class RoomView {
         SceneManager.loadSignInView(stage);
     }
 
-    //-------------------------------------------------------------------//
     @FXML
     public void onEditRoomClick(ActionEvent event) throws Exception {
         stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
-        SceneManager.loadRoomEditView(stage);
+        scene = SceneManager.getRoomEditViewScene();
+        stage.setScene(scene);
+        stage.show();
     }
 }

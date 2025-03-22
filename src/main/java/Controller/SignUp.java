@@ -12,8 +12,12 @@ public class SignUp {
     public static void createAccount(String username, String password) {
         String filePath = "src/main/java/Model/FileData/" + username + ".dat";
         Account account = new Account(username, password);
-
-        AccountDAO.saveAccount(account);
+        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filePath))) {
+            oos.writeObject(account);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static SignUpStatus signUp(String username, String password, String confirmPassword) {

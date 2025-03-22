@@ -7,15 +7,17 @@ public class Account implements Serializable {
 
     private String username;
     private String password;
-    private Room room = null;
+    private Room room;
 
     public Account(String username, String password) {
         this.username = username;
         this.password = password;
         try {
-            room = new Room("", "", "/src/main/resources/Images/SignInIm.jpg");
+            String imagePath = getClass().getResource("/Images/SignInIm.jpg").toExternalForm();
+            room = new Room("name", "description", imagePath);
         }
         catch (Exception e) {
+            System.out.println(e.getMessage());
             System.out.println("Lỗi truyền file ảnh mặc định của room ở class Account");
         }
     }

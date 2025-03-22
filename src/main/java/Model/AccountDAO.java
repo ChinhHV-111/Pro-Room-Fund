@@ -3,8 +3,25 @@ package Model;
 import java.io.*;
 
 public class AccountDAO {
-    public static void saveAccount(Account account) {
-        String filePath = "src/main/java/Model/FileData/" + account.getUsername() + ".dat";
+    private static String filePath;
+    private static AccountDAO instance;
+
+    private AccountDAO(String username) {
+        filePath = "src/main/java/Model/FileData/" + username + ".dat";
+    }
+
+    public static AccountDAO getInstance(String username) {
+        if (instance == null) {
+            instance = new AccountDAO(username);
+        }
+        return instance;
+    }
+
+    public static void resetInstance() {
+        instance = null;
+    }
+
+    public void saveAccount(Account account) {
         try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filePath))) {
             oos.writeObject(account);
         }
@@ -13,9 +30,8 @@ public class AccountDAO {
         }
     }
 
-    public static Account loadAccount(String username) {
+    public Account loadAccount() {
         Account account = null;
-        String filePath = "src/main/java/Model/FileData/" + username + ".dat";
         try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filePath))) {
             account = (Account) ois.readObject();
         }

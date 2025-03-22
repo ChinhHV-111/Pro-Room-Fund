@@ -5,18 +5,19 @@ import Model.AccountDAO;
 import Model.Room;
 
 public class RoomManager {
+    private static AccountDAO accountDAO = AccountDAO.getInstance(SignIn.getAccount().getUsername());
     public static void editRoom(Room room) {
-        Account account = AccountDAO.loadAccount(SignIn.getAccount().getUsername());
-        // code sau
-        AccountDAO.saveAccount(account);
+        Account account = accountDAO.loadAccount();
+        account.setRoom(room);
+        accountDAO.saveAccount(account);
     }
 
     public static void addMember(String member) {
-        Account account = AccountDAO.loadAccount(SignIn.getAccount().getUsername());
+        Account account = accountDAO.loadAccount();
         // Có thể xử lý thêm trường hợp bằng null
         if(account.getRoom() != null) {
             account.getRoom().getMembers().add(member);
         }
-        AccountDAO.saveAccount(account);
+        accountDAO.saveAccount(account);
     }
 }

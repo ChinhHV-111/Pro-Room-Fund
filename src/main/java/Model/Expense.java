@@ -1,8 +1,11 @@
 package Model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Expense {
+public class Expense implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private String name;
     private long cost;
     private LocalDate paymentDate;

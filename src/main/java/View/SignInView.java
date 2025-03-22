@@ -1,5 +1,8 @@
 package View;
 
+import Controller.SignIn;
+import Model.Account;
+import Model.AccountDAO;
 import Utility.SceneManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +15,9 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class SignInView {
+    private AccountDAO accountDAO;
+
+
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -34,10 +40,19 @@ public class SignInView {
         // Kiểm tra hợp lệ: code
         String username = usernameTextField.getText();
         String password = passwordTextField.getText();
-        if(Controller.SignIn.signIn(username, password)) {
-            // Hợp lệ
+        if(SignIn.signIn(username, password)) {
+            // Hợp lệ: load RoomViewScene
             stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
-            SceneManager.loadRoomView(stage);
+            scene = SceneManager.getRoomViewScene();
+
+            accountDAO = AccountDAO.getInstance(username);
+            Account account = accountDAO.loadAccount();
+            RoomView roomView = SceneManager.getRoomView();
+            roomView.setNameLabel(account.getRoom().getName());
+            roomView.setNumberOfResidentsLabel(account.getRoom().getMembers().size());
+            roomView.setDescriptionLabel(account.getRoom().getDescription());
+            stage.setScene(scene);
+            stage.show();
         }
         else {
             // Không hợp lệ

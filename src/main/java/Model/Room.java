@@ -1,10 +1,17 @@
 package Model;
 
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.TreeSet;
 
-public class Room {
+public class Room implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private String name;
     private String description;
     private String imageFilePath;
@@ -37,6 +44,13 @@ public class Room {
     }
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getImageFilePath() {
+        return imageFilePath;
+    }
+    public void setImageFilePath(String imageFilePath) {
+        this.imageFilePath = imageFilePath;
     }
 
     public TreeSet<String> getMembers() {

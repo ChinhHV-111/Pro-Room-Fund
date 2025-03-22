@@ -1,11 +1,14 @@
 package Model;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-public class Expenditure {
+public class Expenditure implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private LocalDate startDate;
     private LocalDate endDate;
     private String name;

@@ -14,8 +14,11 @@ public class SignIn {
     }
 
     private static final String filePath = "src/main/java/Model/FileData/account.txt";
+    private static AccountDAO accountDAO;
 
     public static boolean signIn(String username, String password) {
+        username = username.trim();
+        password = password.trim();
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -25,8 +28,10 @@ public class SignIn {
                     String storedPassword = parts[1].trim();
 
                     // So sánh
-                    if (storedUsername.equals(username.trim()) && storedPassword.equals(password.trim())) {
-                        AccountDAO.loadAccount(storedUsername);
+                    if (storedUsername.equals(username) && storedPassword.equals(password)) {
+                        AccountDAO.resetInstance();
+                        accountDAO = AccountDAO.getInstance(username);
+                        account = accountDAO.loadAccount();
                         return true; // Đăng nhập thành công
                     }
                 }
