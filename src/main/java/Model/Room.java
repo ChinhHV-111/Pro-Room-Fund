@@ -2,12 +2,13 @@ package Model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.TreeSet;
 
 public class Room {
     private String name;
     private String description;
     private String imageFilePath;
-    private ArrayList<String> members;
+    private TreeSet<String> members;
     private Expenditure expenditure;
     private ArrayList<Expenditure> history;
 
@@ -16,7 +17,7 @@ public class Room {
         this.description = description;
         this.imageFilePath = imageFilePath;
 
-        members = new ArrayList<>();
+        members = new TreeSet<>();
 
         LocalDate today = LocalDate.now();
         expenditure = new Expenditure(today);
@@ -38,7 +39,7 @@ public class Room {
         this.description = description;
     }
 
-    public ArrayList<String> getMembers() {
+    public TreeSet<String> getMembers() {
         return members;
     }
 

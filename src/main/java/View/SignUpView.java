@@ -1,6 +1,7 @@
 package View;
 
 import Controller.SignUp;
+import Utility.SceneManager;
 import Utility.SignUpStatus;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,14 +30,8 @@ public class SignUpView {
 
     @FXML
     public void onSignInClick(ActionEvent event) throws Exception {
-        root = FXMLLoader.load(getClass().getResource("/FXML/SignInView/SignInView.fxml"));
-
         stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
-        scene = new Scene(root);
-        String css = getClass().getResource("/FXML/SignInView/SignInView.css").toExternalForm();
-        scene.getStylesheets().add(css);
-        stage.setScene(scene);
-        stage.show();
+        SceneManager.loadSignInView(stage);
     }
 
     @FXML
@@ -58,14 +53,8 @@ public class SignUpView {
         }
         // Nếu hợp lệ
         else {
-            root = FXMLLoader.load(getClass().getResource("/FXML/SignInView/SignInView.fxml"));
-
             stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
-            scene = new Scene(root);
-            String css = getClass().getResource("/FXML/SignInView/SignInView.css").toExternalForm();
-            scene.getStylesheets().add(css);
-            stage.setScene(scene);
-            stage.show();
+            SceneManager.loadSignInView(stage);
         }
     }
 }

@@ -1,5 +1,6 @@
 package View;
 
+import Utility.SceneManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,14 +25,8 @@ public class SignInView {
 
     @FXML
     public void onSignUpClick(ActionEvent event) throws Exception {
-        root = FXMLLoader.load(getClass().getResource("/FXML/SignUpView/SignUpView.fxml"));
         stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
-        scene = new Scene(root);
-        // Nhúng css
-        String css = getClass().getResource("/FXML/SignUpView/SignUpView.css").toExternalForm();
-        scene.getStylesheets().add(css);
-        stage.setScene(scene);
-        stage.show();
+        SceneManager.loadSignUpView(stage);
     }
 
     @FXML
@@ -41,14 +36,8 @@ public class SignInView {
         String password = passwordTextField.getText();
         if(Controller.SignIn.signIn(username, password)) {
             // Hợp lệ
-            root = FXMLLoader.load(getClass().getResource("/FXML/RoomView/RoomView.fxml"));
-
             stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
-            scene = new Scene(root);
-            String css = getClass().getResource("/FXML/RoomView/RoomView.css").toExternalForm();
-            scene.getStylesheets().add(css);
-            stage.setScene(scene);
-            stage.show();
+            SceneManager.loadRoomView(stage);
         }
         else {
             // Không hợp lệ

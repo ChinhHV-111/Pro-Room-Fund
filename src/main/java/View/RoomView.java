@@ -1,5 +1,6 @@
 package View;
 
+import Utility.SceneManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,67 +27,38 @@ public class RoomView {
 
     @FXML
     public void onRoomClick(ActionEvent event) throws Exception {
-        root = FXMLLoader.load(getClass().getResource("/FXML/RoomView/RoomView.fxml"));
-
         stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
-        scene = new Scene(root);
-        String css = getClass().getResource("/FXML/RoomView/RoomView.css").toExternalForm();
-        scene.getStylesheets().add(css);
-        stage.setScene(scene);
-        stage.show();
+        SceneManager.loadRoomView(stage);
     }
 
     @FXML
     public void onMemberClick(ActionEvent event) throws Exception {
-        root = FXMLLoader.load(getClass().getResource("/FXML/MemberView/MemberView.fxml"));
-
         stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
-        scene = new Scene(root);
-        String css = getClass().getResource("/FXML/MemberView/MemberView.css").toExternalForm();
-        scene.getStylesheets().add(css);
-        stage.setScene(scene);
-        stage.show();
+        SceneManager.loadMemberView(stage);
     }
 
     @FXML
     public void onExpenditureClick(ActionEvent event) throws Exception {
-        root = FXMLLoader.load(getClass().getResource("/FXML/ExpenditureView/ExpenditureView.fxml"));
-
         stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
-        scene = new Scene(root);
-        String css = getClass().getResource("/FXML/ExpenditureView/ExpenditureView.css").toExternalForm();
-        scene.getStylesheets().add(css);
-        stage.setScene(scene);
-        stage.show();
+        SceneManager.loadExpenditureView(stage);
     }
 
     @FXML
     public void onHistoryClick(ActionEvent event) throws Exception {
-        root = FXMLLoader.load(getClass().getResource("/FXML/HistoryView/HistoryView.fxml"));
-
         stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
-        scene = new Scene(root);
-        String css = getClass().getResource("/FXML/HistoryView/HistoryView.css").toExternalForm();
-        scene.getStylesheets().add(css);
-        stage.setScene(scene);
-        stage.show();
+        SceneManager.loadHistoryView(stage);
     }
 
     @FXML
     public void onLogOutClick(ActionEvent event) throws Exception {
-        root = FXMLLoader.load(getClass().getResource("/FXML/SignInView/SignInView.fxml"));
-
         stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
-        scene = new Scene(root);
-        String css = getClass().getResource("/FXML/SignInView/SignInView.css").toExternalForm();
-        scene.getStylesheets().add(css);
-        stage.setScene(scene);
-        stage.show();
+        SceneManager.loadSignInView(stage);
     }
 
     //-------------------------------------------------------------------//
     @FXML
     public void onEditRoomClick(ActionEvent event) throws Exception {
-
+        stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
+        SceneManager.loadRoomEditView(stage);
     }
 }

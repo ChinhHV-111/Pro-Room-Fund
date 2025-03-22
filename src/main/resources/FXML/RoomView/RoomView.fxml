@@ -206,12 +206,12 @@
                               <Font name="Geomanist-Bold" size="25.0" />
                            </font>
                         </Label>
-                        <Label layoutX="14.0" layoutY="103.0" text="Number of residents:">
+                        <Label layoutX="14.0" layoutY="113.0" text="Number of residents:">
                            <font>
                               <Font name="Geomanist-Bold" size="25.0" />
                            </font>
                         </Label>
-                        <Label fx:id="numberOfResidentsLabel" alignment="TOP_LEFT" layoutX="50.0" layoutY="139.0" prefHeight="60.0" prefWidth="291.0" text="... người" wrapText="true">
+                        <Label fx:id="numberOfResidentsLabel" alignment="TOP_LEFT" layoutX="50.0" layoutY="149.0" prefHeight="60.0" prefWidth="291.0" text="... người" wrapText="true">
                            <font>
                               <Font name="Geomanist-Book" size="20.0" />
                            </font>
