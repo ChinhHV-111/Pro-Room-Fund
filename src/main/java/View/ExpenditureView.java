@@ -62,4 +62,10 @@ public class ExpenditureView {
         stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
         SceneManager.loadSignInView(stage);
     }
+
+    @FXML
+    public void onAddNewClick(ActionEvent event) throws Exception {
+        Stage subStage = new Stage();
+        SceneManager.loadStage(subStage, "/FXML/ExpenditureView/AddExpenseView.fxml", "/FXML/ExpenditureView/AddExpenseView.css");
+    }
 }

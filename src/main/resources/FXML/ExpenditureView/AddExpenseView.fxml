@@ -1,14 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="View.AddExpenseView"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="450.0" prefWidth="500.0" style="-fx-background-color: #E0F7FA;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.AddExpenseView">
+   <children>
+      <Label layoutX="22.0" layoutY="30.0" prefHeight="23.0" prefWidth="119.0" text="Name:">
+         <font>
+            <Font name="Geomanist-Medium" size="18.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="payerChoiceBox" layoutX="186.0" layoutY="155.0" prefHeight="33.0" prefWidth="250.0" />
+      <Label layoutX="22.0" layoutY="95.0" prefHeight="23.0" prefWidth="119.0" text="Cost:">
+         <font>
+            <Font name="Geomanist-Medium" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="22.0" layoutY="225.0" prefHeight="23.0" prefWidth="119.0" text="Payment date:">
+         <font>
+            <Font name="Geomanist-Medium" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="22.0" layoutY="160.0" prefHeight="23.0" prefWidth="119.0" text="Payer:">
+         <font>
+            <Font name="Geomanist-Medium" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="22.0" layoutY="290.0" prefHeight="23.0" prefWidth="53.0" text="Proof:">
+         <font>
+            <Font name="Geomanist-Medium" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nameTextField" layoutX="186.0" layoutY="25.0" prefHeight="33.0" prefWidth="250.0" promptText="Enter the name of the expense" />
+      <TextField fx:id="costTextField" layoutX="186.0" layoutY="90.0" prefHeight="33.0" prefWidth="250.0" promptText="Enter the cost of the expense" />
+      <DatePicker fx:id="paymentDatePicker" layoutX="186.0" layoutY="220.0" prefHeight="33.0" prefWidth="250.0" promptText="Enter a date" />
+      <Button fx:id="chooseAnImageButton" layoutX="186.0" layoutY="285.0" mnemonicParsing="false" onAction="#onChooseAnImageClick" prefHeight="33.0" prefWidth="250.0" text="Choose an image">
+         <font>
+            <Font name="Geomanist-Book" size="14.0" />
+         </font>
+      </Button>
+      <AnchorPane layoutX="173.0" layoutY="352.0" prefHeight="41.0" prefWidth="155.0" style="-fx-background-color: #8900a8; -fx-background-radius: 11;">
+         <children>
+            <ImageView fitHeight="13.0" fitWidth="13.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/AddIcon.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="48.0" layoutY="10.0" text="Add Expense" textFill="WHITE">
+               <font>
+                  <Font name="Geomanist-Regular" size="15.0" />
+               </font>
+            </Label>
+            <Button layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" onAction="#addExpenseClick" opacity="0.0" prefHeight="40.0" prefWidth="155.0" style="-fx-background-radius: 20;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Label fx:id="invalidAddExpenseLabel" alignment="CENTER" layoutX="108.0" layoutY="411.0" prefHeight="23.0" prefWidth="285.0" textFill="#e0f7fa">
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Label>
+      <CheckBox fx:id="proofCheckBox" layoutX="82.0" layoutY="285.0" mnemonicParsing="false" onAction="#changeProofCheckBox" prefHeight="33.0" prefWidth="87.0" text="Yes/No">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </CheckBox>
+   </children>
 </AnchorPane>

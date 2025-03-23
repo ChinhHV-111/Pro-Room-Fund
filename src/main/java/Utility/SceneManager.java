@@ -41,7 +41,7 @@ public class SceneManager {
         scene.getStylesheets().add(css);
 
         // Đổi icon góc trên bên trái
-        Image icon = new Image(SceneManager.class.getResource("/Images/Logo.png").toExternalForm());
+        Image icon = new Image(SceneManager.class.getResourceAsStream("/Images/Logo.png"));
         stage.getIcons().add(icon);
 
         // Set title stage, scene

@@ -25,4 +25,36 @@ public class Expenditure implements Serializable {
 
         this.totalAmount = 0;
     }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
+    }
+
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public ArrayList<Expense> getExpenses() {
+        return expenses;
+    }
+    public void setExpenses(ArrayList<Expense> expenses) {
+        this.expenses = expenses;
+    }
+
+    public long getTotalAmount() {
+        return totalAmount;
+    }
+    public void setTotalAmount(long totalAmount) {
+        this.totalAmount = totalAmount;
+    }
 }

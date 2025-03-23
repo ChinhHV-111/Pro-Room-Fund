@@ -191,10 +191,10 @@
                   <Insets top="8.0" />
                </VBox.margin>
                <padding>
-                  <Insets left="50.0" right="50.0" top="30.0" />
+                  <Insets bottom="35.0" left="50.0" right="50.0" top="35.0" />
                </padding>
                <children>
-                  <ListView fx:id="memberListView" fixedCellSize="50.0" prefHeight="485.0" prefWidth="583.0" />
+                  <ListView fx:id="memberListView" fixedCellSize="50.0" prefHeight="159.0" prefWidth="575.0" />
                </children>
             </HBox>
          </children>

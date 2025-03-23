@@ -2,6 +2,7 @@ package Model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Expense implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -34,8 +35,8 @@ public class Expense implements Serializable {
         this.cost = cost;
     }
 
-    public LocalDate getPaymentDate() {
-        return paymentDate;
+    public String getPaymentDate() {
+        return paymentDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
     public void setPaymentDate(LocalDate paymentDate) {
         this.paymentDate = paymentDate;
