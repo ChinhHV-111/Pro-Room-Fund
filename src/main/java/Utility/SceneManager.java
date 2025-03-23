@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -30,13 +31,25 @@ public class SceneManager {
     private static Scene historyViewScene = null;
     private static HistoryView historyView = null;
 
-    public static Scene loadScene(String fxmlFilePath, String cssFilePath) throws IOException {
+    public static void loadStage(Stage stage, String fxmlFilePath, String cssFilePath) throws IOException {
+        // Load file fxml ban đầu và truyền vào scene
         Parent root = FXMLLoader.load(SceneManager.class.getResource(fxmlFilePath));
         Scene scene = new Scene(root);
+
         // Nhúng css
         String css = SceneManager.class.getResource(cssFilePath).toExternalForm();
         scene.getStylesheets().add(css);
-        return scene;
+
+        // Đổi icon góc trên bên trái
+        Image icon = new Image(SceneManager.class.getResource("/Images/Logo.png").toExternalForm());
+        stage.getIcons().add(icon);
+
+        // Set title stage, scene
+        stage.setTitle("ProRoomFund");
+        stage.setScene(scene);
+
+        // Show
+        stage.show();
     }
 
     public static void loadView(Stage stage, String fxmlFilePath, String cssFilePath) throws IOException {

@@ -1,4 +1,5 @@
 package View;
+import Utility.SceneManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,23 +17,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        // Load file fxml ban đầu và truyền vào scene
-        Parent root = FXMLLoader.load(getClass().getResource("/FXML/SignInView/SignInView.fxml"));
-        Scene scene = new Scene(root);
-
-        // Nhúng css
-        String css = getClass().getResource("/FXML/SignInView/SignInView.css").toExternalForm();
-        scene.getStylesheets().add(css);
-
-        // Đổi icon góc trên bên trái
-        Image icon = new Image(getClass().getResource("/Images/Logo.png").toExternalForm());
-        primaryStage.getIcons().add(icon);
-
-        // Set title stage, scene
-        primaryStage.setTitle("ProRoomFund");
-        primaryStage.setScene(scene);
-
-        // Show
-        primaryStage.show();
+        SceneManager.loadStage(primaryStage, "/FXML/SignInView/SignInView.fxml", "/FXML/SignInView/SignInView.css");
     }
 }

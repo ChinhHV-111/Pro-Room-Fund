@@ -62,4 +62,16 @@ public class MemberView {
         stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
         SceneManager.loadSignInView(stage);
     }
+
+    @FXML
+    public void onAddNewClick(ActionEvent event) throws Exception {
+        Stage stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
+        scene = SceneManager.getMemberViewScene();
+
+        Stage subStage = new Stage();
+        SceneManager.loadStage(subStage, "/FXML/MemberView/AddMemberView.fxml", "/FXML/MemberView/AddMemberView.css");
+
+        stage.setScene(scene);
+        stage.show();
+    }
 }

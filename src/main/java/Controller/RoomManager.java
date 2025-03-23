@@ -6,18 +6,33 @@ import Model.Room;
 
 public class RoomManager {
     private static AccountDAO accountDAO = AccountDAO.getInstance(SignIn.getAccount().getUsername());
-    public static void editRoom(Room room) {
-        Account account = accountDAO.loadAccount();
-        account.setRoom(room);
-        accountDAO.saveAccount(account);
+
+    private static String normalizeTheName(String name){
+        String[] words = name.split(" ");
+        name = "";
+        int numberOfWords = words.length;
+        for(int i = 0; i < numberOfWords; i++){
+           words[i] = words[i].substring(0, 1).toUpperCase() + words[i].substring(1).toLowerCase();
+           name += words[i];
+           if(i < numberOfWords - 1){
+               name += " ";
+           }
+        }
+        return name;
     }
 
-    public static void addMember(String member) {
+    public static boolean addMember(String member) {
+        // Chuẩn hoá lại tên
+        member = normalizeTheName(member);
+
         Account account = accountDAO.loadAccount();
-        // Có thể xử lý thêm trường hợp bằng null
-        if(account.getRoom() != null) {
-            account.getRoom().getMembers().add(member);
+        if(account.getRoom().getMembers().contains(member)) {
+            return false;
         }
-        accountDAO.saveAccount(account);
+        else {
+            account.getRoom().getMembers().add(member);
+            accountDAO.saveAccount(account);
+            return true;
+        }
     }
 }

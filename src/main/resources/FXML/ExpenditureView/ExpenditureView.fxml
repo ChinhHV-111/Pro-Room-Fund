@@ -174,16 +174,17 @@
                   <Insets top="8.0" />
                </VBox.margin>
                <padding>
-                  <Insets left="50.0" top="30.0" />
+                  <Insets left="35.0" top="30.0" />
                </padding>
                <content>
-                  <TableView prefHeight="595.0" prefWidth="574.0">
+                  <TableView prefHeight="595.0" prefWidth="607.0">
                     <columns>
-                      <TableColumn prefWidth="159.33331680297852" text="Name" />
-                      <TableColumn prefWidth="91.33329772949219" text="Cost" />
-                        <TableColumn prefWidth="115.33331298828125" text="Payment date" />
-                        <TableColumn prefWidth="100.66677856445312" text="Payer" />
-                        <TableColumn prefWidth="108.0001220703125" text="Proof" />
+                      <TableColumn prefWidth="148.66669595241547" text="Name" />
+                      <TableColumn prefWidth="79.33334350585938" text="Cost" />
+                        <TableColumn prefWidth="108.66667175292969" text="Payment date" />
+                        <TableColumn prefWidth="93.3333740234375" text="Payer" />
+                        <TableColumn minWidth="0.0" prefWidth="115.33343505859375" text="Proof" />
+                        <TableColumn prefWidth="62.0" text="Delete" />
                     </columns>
                   </TableView>
                </content>
