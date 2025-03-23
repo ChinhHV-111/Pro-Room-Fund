@@ -35,4 +35,10 @@ public class RoomManager {
             return true;
         }
     }
+
+    public static void removeMember(String member) {
+        Account account = accountDAO.loadAccount();
+        account.getRoom().getMembers().remove(member);
+        accountDAO.saveAccount(account);
+    }
 }

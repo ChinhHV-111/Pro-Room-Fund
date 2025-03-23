@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -166,19 +165,38 @@
                         </Button>
                      </children>
                   </AnchorPane>
+                  <AnchorPane layoutX="311.0" layoutY="14.0" prefHeight="40.0" prefWidth="135.0" style="-fx-background-color: #8900a8; -fx-background-radius: 11;">
+                     <children>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="18.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Images/DeleteIcon.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="55.0" layoutY="10.0" text="Delete" textFill="WHITE">
+                           <font>
+                              <Font name="Geomanist-Regular" size="15.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" onAction="#onDeleteClick" opacity="0.0" prefHeight="40.0" prefWidth="135.0" style="-fx-background-radius: 20;">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
-            <ScrollPane prefHeight="539.0" prefWidth="675.0">
+            <HBox prefHeight="521.0" prefWidth="675.0" style="-fx-background-color: #f4f4f4;">
                <VBox.margin>
                   <Insets top="8.0" />
                </VBox.margin>
                <padding>
-                  <Insets left="50.0" top="30.0" />
+                  <Insets left="50.0" right="50.0" top="30.0" />
                </padding>
-               <content>
-                  <ListView prefHeight="625.0" prefWidth="574.0" />
-               </content>
-            </ScrollPane>
+               <children>
+                  <ListView fx:id="memberListView" fixedCellSize="50.0" prefHeight="485.0" prefWidth="583.0" />
+               </children>
+            </HBox>
          </children>
       </VBox>
    </children>

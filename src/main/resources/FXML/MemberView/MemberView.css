@@ -32,3 +32,9 @@
 #logoutButton:hover {
     -fx-opacity: 0.3;
 }
+
+.list-cell {
+    -fx-font-family: "Geomanist Medium"; /* Font chữ */
+    -fx-font-size: 19; /* Cỡ chữ */
+    -fx-text-fill: #000000; /* Màu chữ */
+}
