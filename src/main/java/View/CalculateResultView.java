@@ -3,6 +3,7 @@ package View;
 import Controller.SignIn;
 import Model.Account;
 import Model.AccountDAO;
+import Model.Expenditure;
 import Utility.SceneManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -25,12 +26,18 @@ public class CalculateResultView {
 
     @FXML
     public void onSaveClick(ActionEvent event) throws IOException {
-//        // Xoá dữ liệu trong TableView của Expenditure
-//        SceneManager.getExpenditureView().getExpenses().clear();
-//        // Thiết lập đủ dữ liệu cho object expenditure trong Class Room và đẩy và ArrayList<Expenditure> history, đồng thời thiết lập lại expenditure mới
-//        Account account = accountDAO.loadAccount();
-//        account.getRoom().getExpenditure().setEndDate(LocalDate.now());
-//        account.getRoom().getExpenditure().setResult(SceneManager.getExpenditureView().getResult());
+        // Xoá dữ liệu trong TableView của Expenditure
+        SceneManager.getExpenditureView().getExpenses().clear();
+        // Thiết lập đủ dữ liệu cho object expenditure trong Class Room và đẩy và ArrayList<Expenditure> history, đồng thời thiết lập lại expenditure mới
+        Account account = accountDAO.loadAccount();
+        account.getRoom().getExpenditure().setEndDate(LocalDate.now());
+        account.getRoom().getExpenditure().setResult(SceneManager.getExpenditureView().getResult());
+        account.getRoom().getHistory().add(account.getRoom().getExpenditure());
+        account.getRoom().setExpenditure(new Expenditure(LocalDate.now()));
+        accountDAO.saveAccount(account);
+
+        Stage stage = (Stage) resultLabel.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
