@@ -33,6 +33,11 @@ public class CalculateResultView {
         account.getRoom().getExpenditure().setEndDate(LocalDate.now());
         account.getRoom().getExpenditure().setResult(SceneManager.getExpenditureView().getResult());
         account.getRoom().getHistory().add(account.getRoom().getExpenditure());
+
+        SceneManager.getHistoryViewScene();
+        SceneManager.getHistoryView().getHistory().setAll(account.getRoom().getHistory());
+
+
         account.getRoom().setExpenditure(new Expenditure(LocalDate.now()));
         accountDAO.saveAccount(account);
 

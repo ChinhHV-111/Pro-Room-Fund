@@ -11,7 +11,6 @@ public class Expenditure implements Serializable {
 
     private LocalDate startDate;
     private LocalDate endDate;
-    private String name;
     private ArrayList<Expense> expenses;
     private int totalAmount;
     private ArrayList<String> result;
@@ -21,21 +20,17 @@ public class Expenditure implements Serializable {
         this.expenses = new ArrayList<>();
     }
 
-    public LocalDate getStartDate() {
-        return startDate;
+    public String getStartDate() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return this.startDate.format(formatter);
     }
 
-    public LocalDate getEndDate() {
-        return endDate;
+    public String getEndDate() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return this.endDate.format(formatter);
     }
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
-    }
-
-    public String getName() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        this.name = "From [" + startDate.format(formatter) + "] to [" + endDate.format(formatter) + "]";
-        return name;
     }
 
     public ArrayList<Expense> getExpenses() {

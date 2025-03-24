@@ -147,7 +147,7 @@ public class ExpenditureView {
         Stage openProofStage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ExpenditureView/OpenProof.fxml"));
         Scene openProofScene = new Scene(loader.load());
-        OpenProofView openProofView = (OpenProofView) loader.getController();
+        OpenProofView openProofView = loader.getController();
         openProofView.setImage(expense.getProofFilePath());
         openProofStage.setScene(openProofScene);
         openProofStage.show();
