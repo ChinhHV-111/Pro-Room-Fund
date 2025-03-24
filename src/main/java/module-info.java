@@ -5,4 +5,6 @@ module com.example.prohomefund {
 
     opens View to javafx.fxml;
     exports View;
+
+    opens Model to javafx.base;
 }

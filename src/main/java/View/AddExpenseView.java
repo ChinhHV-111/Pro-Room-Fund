@@ -47,7 +47,6 @@ public class AddExpenseView {
 
     @FXML
     public void initialize() {
-        proofFilePath = "null";
         // Thêm dữ liệu vào payerChoiceBox
         Account account = accountDAO.loadAccount();
         payerChoiceBox.getItems().setAll(account.getRoom().getMembers());
@@ -110,6 +109,9 @@ public class AddExpenseView {
         String costText = costTextField.getText();
         String payer = payerChoiceBox.getValue();
         LocalDate paymentDate = paymentDatePicker.getValue();
+        if(!proofCheckBox.isSelected()) {
+            proofFilePath = null;
+        }
 
         AddExpenseStatus addExpenseStatus = ExpenditureManager.addExpense(name, costText, payer, paymentDate, proofFilePath);
 

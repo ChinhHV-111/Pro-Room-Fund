@@ -32,4 +32,17 @@ public class ExpenditureManager {
 
         return AddExpenseStatus.SUCCESS;
     }
+
+    public static void deleteExpense(Expense expense) {
+        Account account = accountDAO.loadAccount();
+
+        account.getRoom().getExpenditure().getExpenses().removeIf(e ->
+                e.getName().equals(expense.getName()) &&
+                e.getCost() == expense.getCost() &&
+                e.getPayer().equals(expense.getPayer()) &&
+                e.getPaymentDate().equals(expense.getPaymentDate()) &&
+                e.getProofFilePath().equals(expense.getProofFilePath())
+        );
+        accountDAO.saveAccount(account);
+    }
 }

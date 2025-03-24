@@ -1,15 +1,25 @@
 package View;
 
+import Controller.ExpenditureManager;
 import Controller.SignIn;
 import Model.Account;
 import Model.AccountDAO;
+import Model.Expense;
 import Utility.SceneManager;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 public class ExpenditureView {
@@ -18,6 +28,103 @@ public class ExpenditureView {
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    @FXML
+    private TableView<Expense> expenseTableView;
+    @FXML
+    private TableColumn<Expense, String> nameColumn;
+    @FXML
+    private TableColumn<Expense, Integer> costColumn;
+    @FXML
+    private TableColumn<Expense, String> payerColumn;
+    @FXML
+    private TableColumn<Expense, String> paymentDateColumn;
+    @FXML
+    private TableColumn<Expense, Void> proofColumn;
+    @FXML
+    private TableColumn<Expense, Void> deleteColumn;
+
+    private ObservableList<Expense> expenses = FXCollections.observableArrayList();
+
+    @FXML
+    private void initialize() {
+        Account account = accountDAO.loadAccount();
+        expenses.setAll(account.getRoom().getExpenditure().getExpenses());
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        costColumn.setCellValueFactory(new PropertyValueFactory<>("cost"));
+        payerColumn.setCellValueFactory(new PropertyValueFactory<>("payer"));
+        paymentDateColumn.setCellValueFactory(new PropertyValueFactory<>("paymentDate"));
+
+        // Cột (proofColumn) với nút "Xem"
+        proofColumn.setCellFactory(col -> new TableCell<Expense, Void>() {
+            private final Button viewProofButton = new Button("View");
+
+            // Edit nút
+            {
+                // Thiết lập sau
+                viewProofButton.setStyle("");
+                viewProofButton.setMaxWidth(Double.MAX_VALUE); // Mở rộng nút theo chiều rộng cột
+                viewProofButton.setAlignment(Pos.CENTER);      // Căn giữa chữ trong nút
+            }
+
+            {
+                viewProofButton.setOnAction(event -> {
+                    Expense expense = getTableView().getItems().get(getIndex());
+//                    openProof(expense);
+                });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                    viewProofButton.setDisable(true);
+                } else {
+                    setGraphic(viewProofButton);
+                    viewProofButton.setDisable(false);
+                    Expense expense = getTableView().getItems().get(getIndex());
+                    if(expense.getProofFilePath() == null) {
+                        viewProofButton.setDisable(true);
+                    }
+                }
+            }
+        });
+
+        // Cột (deleteColumn) với nút "Xóa"
+        deleteColumn.setCellFactory(col -> new TableCell<Expense, Void>() {
+            private final Button deleteButton = new Button("Delete");
+
+            // Edit nút
+            {
+                deleteButton.setMaxWidth(Double.MAX_VALUE); // Mở rộng nút theo chiều rộng cột
+                deleteButton.setAlignment(Pos.CENTER);      // Căn giữa chữ trong nút
+            }
+
+            {
+                deleteButton.setOnAction(event -> {
+                    Expense expense = getTableView().getItems().get(getIndex());
+                    expenses.remove(expense);
+                    Account account = accountDAO.loadAccount();
+                    expenseTableView.refresh();
+                });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                    deleteButton.setDisable(true);
+                } else {
+                    setGraphic(deleteButton);
+                    deleteButton.setDisable(false);
+                }
+            }
+        });
+
+        expenseTableView.setItems(expenses);
+    }
 
     @FXML
     public void onRoomClick(ActionEvent event) throws Exception {
