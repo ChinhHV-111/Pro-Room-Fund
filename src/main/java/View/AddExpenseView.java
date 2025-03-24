@@ -6,6 +6,7 @@ import Model.Account;
 import Model.AccountDAO;
 import Utility.AddExpenseStatus;
 import Utility.ImageProcessor;
+import Utility.SceneManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
@@ -120,6 +121,8 @@ public class AddExpenseView {
             invalidAddExpenseLabel.setStyle("-fx-text-fill: #fb0000;");
         }
         else {
+            Account account = accountDAO.loadAccount();
+            SceneManager.getExpenditureView().getExpenses().setAll(account.getRoom().getExpenditure().getExpenses());
             Stage stage = (Stage) invalidAddExpenseLabel.getScene().getWindow();
             stage.close();
         }

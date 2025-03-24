@@ -22,6 +22,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
 public class ExpenditureView {
     private AccountDAO accountDAO = AccountDAO.getInstance(SignIn.getAccount().getUsername());
 
@@ -45,6 +48,15 @@ public class ExpenditureView {
     private TableColumn<Expense, Void> deleteColumn;
 
     private ObservableList<Expense> expenses = FXCollections.observableArrayList();
+    ArrayList<String> result;
+
+    public ObservableList<Expense> getExpenses() {
+        return expenses;
+    }
+
+    public ArrayList<String> getResult() {
+        return result;
+    }
 
     @FXML
     private void initialize() {
@@ -70,7 +82,11 @@ public class ExpenditureView {
             {
                 viewProofButton.setOnAction(event -> {
                     Expense expense = getTableView().getItems().get(getIndex());
-//                    openProof(expense);
+                    try {
+                        openProof(expense);
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
                 });
             }
 
@@ -104,8 +120,9 @@ public class ExpenditureView {
             {
                 deleteButton.setOnAction(event -> {
                     Expense expense = getTableView().getItems().get(getIndex());
-                    expenses.remove(expense);
+                    ExpenditureManager.deleteExpense(expense);
                     Account account = accountDAO.loadAccount();
+                    expenses.setAll(account.getRoom().getExpenditure().getExpenses());
                     expenseTableView.refresh();
                 });
             }
@@ -124,6 +141,16 @@ public class ExpenditureView {
         });
 
         expenseTableView.setItems(expenses);
+    }
+
+    public void openProof(Expense expense) throws Exception {
+        Stage openProofStage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ExpenditureView/OpenProof.fxml"));
+        Scene openProofScene = new Scene(loader.load());
+        OpenProofView openProofView = (OpenProofView) loader.getController();
+        openProofView.setImage(expense.getProofFilePath());
+        openProofStage.setScene(openProofScene);
+        openProofStage.show();
     }
 
     @FXML
@@ -174,5 +201,12 @@ public class ExpenditureView {
     public void onAddNewClick(ActionEvent event) throws Exception {
         Stage subStage = new Stage();
         SceneManager.loadStage(subStage, "/FXML/ExpenditureView/AddExpenseView.fxml", "/FXML/ExpenditureView/AddExpenseView.css");
+    }
+
+    @FXML
+    public void onCalculateClick(ActionEvent event) throws Exception {
+        result = ExpenditureManager.calculate();
+        Stage subStage = new Stage();
+        SceneManager.loadStage(subStage, "/FXML/ExpenditureView/CalculateResult.fxml", "/FXML/ExpenditureView/CalculateResult.css");
     }
 }

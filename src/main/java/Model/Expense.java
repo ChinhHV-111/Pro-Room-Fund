@@ -8,12 +8,12 @@ public class Expense implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String name;
-    private long cost;
+    private int cost;
     private LocalDate paymentDate;
     private String payer;
     private String proofFilePath;
 
-    public Expense(String name, long cost, LocalDate paymentDate, String payer, String proofFilePath) {
+    public Expense(String name, int cost, LocalDate paymentDate, String payer, String proofFilePath) {
         this.name = name;
         this.cost = cost;
         this.paymentDate = paymentDate;
@@ -28,10 +28,10 @@ public class Expense implements Serializable {
         this.name = name;
     }
 
-    public long getCost() {
+    public int getCost() {
         return cost;
     }
-    public void setCost(long cost) {
+    public void setCost(int cost) {
         this.cost = cost;
     }
 

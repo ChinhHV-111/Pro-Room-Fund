@@ -166,6 +166,25 @@
                         </Button>
                      </children>
                   </AnchorPane>
+                  <AnchorPane layoutX="303.0" layoutY="14.0" prefHeight="41.0" prefWidth="121.0" style="-fx-background-color: #8900a8; -fx-background-radius: 11;">
+                     <children>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Images/CaculateIcon.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="46.0" layoutY="11.0" text="Calculate" textFill="WHITE">
+                           <font>
+                              <Font name="Geomanist-Regular" size="15.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="12.0" layoutY="1.0" mnemonicParsing="false" onAction="#onCalculateClick" opacity="0.0" prefHeight="40.0" prefWidth="114.0" style="-fx-background-radius: 20;">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
             <VBox prefHeight="521.0" prefWidth="675.0" style="-fx-background-color: #f4f4f4;">
